@@ -1,0 +1,68 @@
+.navbar.navbar-default(role='navigation')
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle(data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' type='button')
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand(href='#') Kozak
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a(href='#') Board
+        %li.dropdown
+          %a.dropdown-toggle(href='#' data-toggle='dropdown')
+            Current project
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a(href='#') Project 1
+            %li
+              %a(href='#') Project 2
+            %li
+              %a(href='#')
+                %span.glyphicon.glyphicon-plus
+                New project...
+      .navbar-right
+        %p.navbar-text John Doe
+        %button.navbar-btn.btn.btn-danger
+          %span.glyphicon.glyphicon-log-out
+
+.container-fluid
+  .area-column
+    .area.area-default
+      .area-heading TODO
+      .area-body
+        .row-fluid
+          .ticket-column
+            .ticket.ticket-primary
+              .ticket-heading Ticket with long long name
+              .ticket-body
+                Some ticket info
+              .ticket-footer
+                This is footer
+          .ticket-column
+            .ticket.ticket-danger
+              .ticket-heading Ticket
+              .ticket-body Some ticket info
+              .ticket-footer
+                This is footer
+          .ticket-column
+            .ticket.ticket-warning
+              .ticket-heading Ticket
+              .ticket-body Some ticket info
+              .ticket-footer
+                This is footer
+  .area-column
+    .area.area-default
+      .area-heading In progress
+      .area-body tickets
+  .area-column
+    .area.area-default
+      .area-heading Done
+      .area-body tickets
+  .area-column
+    .area.area-default
+      .area-heading Approved
+      .area-body tickets

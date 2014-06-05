@@ -1,0 +1,63 @@
+// AREAS
+.area-column{
+  @include make-sm-column(3, 10px);
+}
+
+.area{
+  @extend .panel;
+}
+
+.area-body{
+  @extend .panel-body;
+  padding: 5px;
+}
+
+.area-heading{
+  @extend .panel-heading;
+}
+
+.area-primary{
+  @extend .panel-primary;
+}
+
+.area-default{
+  @extend .panel-default;
+}
+
+// TICKETS
+.ticket-column{
+  @include make-sm-column(6, 10px);
+}
+
+.ticket{
+  @extend .panel;
+  margin-bottom: 5px;
+}
+
+.ticket-body{
+  @extend .panel-body;
+  max-height:80px;
+  min-height:80px;
+  padding:0 5px;
+}
+
+.ticket-heading{
+  @extend .panel-heading;
+  padding: 0 5px;
+  white-space:nowrap;
+}
+
+.ticket-footer{
+  @extend .panel-footer;
+  padding: 0 5px;
+}
+
+.ticket-primary{
+  @extend .panel-primary;
+}
+.ticket-danger{
+  @extend .panel-danger;
+}
+.ticket-warning{
+  @extend .panel-warning;
+}

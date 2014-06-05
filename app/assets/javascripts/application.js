@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+
+
+//= require lib/underscore
+//= require lib/backbone
+//= require lib/marionette
+
+//= require_tree ./backbone

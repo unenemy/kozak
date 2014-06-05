@@ -13,7 +13,11 @@ gem 'thin'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'haml_coffee_assets', git: 'https://github.com/netzpirat/haml_coffee_assets.git'
+gem 'execjs'
+
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
