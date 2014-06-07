@@ -5,6 +5,9 @@
 
 .area{
   @extend .panel;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.76);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(50, 50, 50, 0.76);
+  box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 0.76);
 }
 
 .area-body{
@@ -25,31 +28,50 @@
 }
 
 // TICKETS
-.ticket-column{
-  @include make-sm-column(6, 10px);
-}
-
 .ticket{
   @extend .panel;
   margin-bottom: 5px;
+  .ticket-menu > a > span{
+    color:black;
+  }
+  &.ui-sortable-helper{
+  -moz-transform: rotate(357deg); /* Для Firefox */
+  -ms-transform: rotate(357deg); /* Для IE */
+  -webkit-transform: rotate(357deg); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate(357deg); /* Для Opera */
+  transform: rotate(357deg);
+  }
 }
 
 .ticket-body{
   @extend .panel-body;
-  max-height:80px;
-  min-height:80px;
+  max-height:40px;
+  min-height:40px;
   padding:0 5px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  &:hover{
+    overflow:scroll;
+    white-space:normal;
+    text-overflow:clip;
+  }
 }
 
 .ticket-heading{
   @extend .panel-heading;
   padding: 0 5px;
   white-space:nowrap;
+  cursor:move;
+  a{
+    color:inherit;
+  }
 }
 
 .ticket-footer{
   @extend .panel-footer;
-  padding: 0 5px;
+  padding: 2px 5px;
+  zoom:0.8;
 }
 
 .ticket-primary{
@@ -60,4 +82,78 @@
 }
 .ticket-warning{
   @extend .panel-warning;
+}
+.ticket-placeholder{
+  @extend .ticket;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(50, 50, 50, 0.76);
+  -moz-box-shadow:    0px 0px 20px 0px rgba(50, 50, 50, 0.76);
+  box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 0.76);
+  margin:10px;
+}
+.ticket-list{
+  min-height:87px;
+}
+
+// Tooltip fixes
+
+.tooltip-arrow{
+  display:none;
+}
+
+// Navbar
+$bgDefault    : #5b9cd9;
+$bgHighlight  : #5b9cd9;
+$colDefault   : #12463F;
+$colHighlight : #443679;
+.navbar-default {
+  margin-bottom:35px;
+  -webkit-box-shadow: 0px 9px 6px 9px rgba(240, 231, 33, 1);
+  -moz-box-shadow:    0px 9px 6px 9px rgba(240, 231, 33, 1);
+  box-shadow:         0px 9px 6px 9px rgba(240, 231, 33, 1);
+	background-color: $bgDefault;
+	border-color: $bgHighlight;
+  border-radius:0px;
+	.navbar-brand {
+		color: $colDefault;
+		&:hover, &:focus {
+			color: $colHighlight; }}
+	.navbar-text {
+		color: $colDefault; }
+	.navbar-nav {
+		> li {
+			> a {
+				color: $colDefault;
+				&:hover,  &:focus {
+					color: $colHighlight; }}}
+		> .active {
+			> a, > a:hover, > a:focus {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}
+		> .open {
+			> a, > a:hover, > a:focus {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}}
+	.navbar-toggle {
+		border-color: $bgHighlight;
+		&:hover, &:focus {
+			background-color: $bgHighlight; }
+		.icon-bar {
+			background-color: $colDefault; }}
+	.navbar-collapse,
+	.navbar-form {
+		border-color: $colDefault; }
+	.navbar-link {
+		color: $colDefault;
+		&:hover {
+			color: $colHighlight; }}}
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu {
+		> li > a {
+			color: $colDefault;
+			&:hover, &:focus {
+				color: $colHighlight; }}
+		> .active {
+			> a, > a:hover, > a:focus, {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}}
 }
