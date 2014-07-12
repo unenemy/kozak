@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 
+//= require backbone/templates/context
 
 //= require lib/underscore
 //= require lib/backbone

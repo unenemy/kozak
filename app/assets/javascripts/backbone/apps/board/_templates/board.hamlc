@@ -1,0 +1,104 @@
+.container-fluid
+  .area-column
+    .area.area-default
+      .area-heading TODO
+      .area-body
+        .ticket-list
+          .ticket.ticket-primary
+            .ticket-heading
+              %a(href='#' data-toggle='modal' data-target='#ticket-modal') #1231
+              .pull-right
+                .dropdown.ticket-menu
+                  %a(data-toggle='dropdown' href='#')
+                    %span.glyphicon.glyphicon-cog
+                  %ul.dropdown-menu(role='menu' aria-labelledby='dLabel')
+                    %li
+                      %a(href='#') Log time
+                    %li
+                      %a(href='#')
+                        .text-danger
+                          %span.glyphicon.glyphicon-trash
+                          Destroy
+              .clearfix
+            .ticket-body
+              Ticket name comes here
+            .ticket-footer
+              %span.glyphicon.glyphicon-fire
+              25.09.2014
+              .pull-right
+                %span.glyphicon.glyphicon-time
+                10:35
+              .clearfix
+          .ticket.ticket-danger
+            .ticket-heading
+              %a(href='#') #1
+            .ticket-body Some ticket info
+            .ticket-footer
+              %span.glyphicon.glyphicon-fire
+              25.09.2014
+              .pull-right
+                %span.glyphicon.glyphicon-time
+                10:35
+              .clearfix
+          .ticket.ticket-warning
+            .ticket-heading
+              %a(href='#') #3221
+            .ticket-body Here comes really long and very descriptive ticket name much much longer then you think it is
+            .ticket-footer
+              %span.glyphicon.glyphicon-fire
+              25.09.2014
+              .pull-right
+                %span.glyphicon.glyphicon-time(rel='tooltip' data-toggle='tooltip' title='Estimated - 24:00')
+                10:35
+              .clearfix
+  .area-column
+    .area.area-default
+      .area-heading In progress
+      .area-body
+        .ticket-list
+  .area-column
+    .area.area-default
+      .area-heading Done
+      .area-body
+        .ticket-list
+  .area-column
+    .area.area-default
+      .area-heading Approved
+      .area-body
+        .ticket-list
+#ticket-modal.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-body
+        %h4 Ticket name comes here
+        %form(role='form')
+          .row
+            .col.col-sm-4
+              Assignee
+            .col.col-sm-4
+              Due date
+            .col.col-sm-4
+              Estimated time
+          .row
+            .col.col-sm-4
+              Created At
+            .col.col-sm-4
+              Updated At
+            .col.col-sm-4
+              Time spent
+          .form-group
+            %label(for='description') Description
+            %textarea#description.form-control(rows='9' placeholder='Put description here...')
+        %ul.nav.nav-tabs
+          %li.active
+            %a(href='#comments' data-toggle='tab') Comments
+          %li
+            %a(href='#resent-updates' data-toggle='tab') Resent updates
+          %li
+            %a(href='#logged-time' data-toggle='tab') Logged time
+        .tab-content
+          #comments.tab-pane.fade.in.active Comments
+          #resent-updates.fade.tab-pane Resent updates
+          #logged-time.fade.tab-pane Logged time
+      .modal-footer
+        %button.btn.btn-primary Alright
