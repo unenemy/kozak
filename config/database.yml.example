@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: kozak_development
+  username: postgres
+  password: password
+
+test:
+  <<: *default
+  database: kozak_test
+
+production:
+  <<: *default
+  database: kozak_production
+  username: kozak
+  password: <%= ENV['KOZAK_DATABASE_PASSWORD'] %>
