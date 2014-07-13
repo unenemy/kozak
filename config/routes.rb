@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#index'
   resources :designs, only: :show
+
+  namespace :api do
+    resources :users do
+      collection do
+        post :sign_in, :sign_up
+      end
+    end
+  end
 end
