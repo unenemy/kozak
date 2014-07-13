@@ -14,4 +14,16 @@ RSpec.describe 'User authentication', type: :request do
     expect(response.body).to be_present
     expect(json).to have_key(:auth_token)
   end
+
+  it 'should authorize' do
+    user = create(:user)
+    token = user.tokens.create.token
+    get api_projects_path, nil, { 'Authorization' => "Token token=\"#{token}\"" }
+    expect(response).to be_success
+  end
+
+  it 'should not authorize' do
+    get api_projects_path, nil
+    expect(response).to_not be_success
+  end
 end

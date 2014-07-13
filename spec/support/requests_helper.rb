@@ -6,12 +6,6 @@ module Requests
   end
 
   module AuthHelpers
-    def authWithToken(token)
-      request.headers['X-ACCESS-TOKEN'] = "#{token.token}"
-    end
 
-    def clearToken
-      request.headers['X-ACCESS-TOKEN'] = nil
-    end
   end
 end

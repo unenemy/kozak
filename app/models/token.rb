@@ -15,4 +15,8 @@ class Token < ActiveRecord::Base
       break unless Token.find_by_token(self.token)
     end
   end
+
+  def expired?
+    expires_at < Time.now
+  end
 end

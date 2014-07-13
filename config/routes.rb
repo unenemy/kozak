@@ -8,5 +8,6 @@ Rails.application.routes.draw do
         post :sign_in, :sign_up
       end
     end
+    resources :projects
   end
 end
