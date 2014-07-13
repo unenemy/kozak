@@ -15,15 +15,23 @@ RSpec.describe 'User authentication', type: :request do
     expect(json).to have_key(:auth_token)
   end
 
-  it 'should authorize' do
+  it 'should authorize with valid token' do
     user = create(:user)
     token = user.tokens.create.token
     get api_projects_path, nil, { 'Authorization' => "Token token=\"#{token}\"" }
     expect(response).to be_success
   end
 
-  it 'should not authorize' do
-    get api_projects_path, nil
+  it 'should not authorize with unvalid token' do
+    get api_projects_path, nil, { 'Authorization' => "Token token=anythingunvalid" }
+    expect(response).to_not be_success
+  end
+
+  it 'should not authorize with expired token' do
+    user = create(:user)
+    token = user.tokens.create
+    token.update_attribute(:expires_at, 2.months.ago)
+    get api_projects_path, nil, { 'Authorization' => "Token token=\"#{token.token}\"" }
     expect(response).to_not be_success
   end
 end
