@@ -5,6 +5,5 @@ FactoryGirl.define do
     email 'user@example.com'
     username 'username'
     password 'password'
-    password_confirmation 'password'
   end
 end
