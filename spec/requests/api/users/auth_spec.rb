@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'User authentication', type: :request do
+describe 'User authentication', type: :request do
   it 'should not authenticate' do
     user = create(:user)
     post sign_in_api_users_path, user: { email: user.email, password: 'fakepass' }

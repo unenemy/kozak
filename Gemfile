@@ -13,6 +13,9 @@ gem 'thin'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'rabl'
+gem 'oj'
+
 gem 'haml_coffee_assets', git: 'https://github.com/netzpirat/haml_coffee_assets.git'
 gem 'execjs'
 
@@ -36,4 +39,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry'
+  gem 'faker'
 end

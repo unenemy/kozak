@@ -1,10 +1,14 @@
 class API::ProjectsController < API::BaseController
   def index
-    render json: { projects: [] }
+    @projects = Project.all
+  end
+
+  def show
+    @project = Project.find(params[:id])
   end
 
   private
   def user_params
-    params.require(:user).permit(:password, :password_confirmation, :email, :login)
+    params.require(:project).permit(:title)
   end
 end
