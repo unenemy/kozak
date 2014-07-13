@@ -22,8 +22,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 
-gem 'devise'
-
 group :development do
   gem 'quiet_assets'
   gem 'pry'
