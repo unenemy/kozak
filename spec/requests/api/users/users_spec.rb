@@ -9,8 +9,10 @@ describe 'Users CRUD' do
 
     it 'should not be able to update another user' do
       user = create(:user)
+      current_email = user.email
       authorized_request :put, api_user_path(user), { user: { email: Faker::Internet.email } }
       expect(response).to_not be_success
+      expect(user.reload.email).to eq(current_email)
     end
   end
 
@@ -22,6 +24,14 @@ describe 'Users CRUD' do
       authorized_request :put, api_user_path(user), { user: { role: 'admin' } }
       expect(response).to be_success
       expect(user.reload.admin?).to eq(true)
+    end
+
+    it 'should be able to update his pofile' do
+      @user = create(:user)
+      new_email = Faker::Internet.email
+      authorized_request :put, api_user_path(@user), { user: { email: new_email } }
+      expect(response).to be_success
+      expect(@user.reload.email).to eq(new_email)
     end
   end
 end
