@@ -10,4 +10,8 @@ class UserPolicy < BasePolicy
   def change_role?
     present? && @user.admin?
   end
+
+  def create?
+    change_role?
+  end
 end

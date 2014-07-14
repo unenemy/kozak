@@ -1,6 +1,6 @@
 class API::UsersController < API::BaseController
   before_action :fetch_user, only: [:update, :show, :destroy]
-  skip_before_action :authenticate_user, only: [:sign_in, :sign_up]
+  skip_before_action :authenticate_user, only: [:sign_in]
   def sign_in
     token = User.authenticate(params[:user][:email], params[:user][:password])
     if token
@@ -10,13 +10,18 @@ class API::UsersController < API::BaseController
     end
   end
 
-  def sign_up
-    user = User.create(user_params)
-    if user.persisted?
-      render json: { user: user.to_json, auth_token: user.tokens.create.token }, status: :created
+  def create
+    authorize User
+    @user = User.create(user_params)
+    if @user.persisted?
+      render
     else
       render json: { error: 'Validation Error' }, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @users = User.all_except(current_user)
   end
 
   def update
@@ -28,6 +33,8 @@ class API::UsersController < API::BaseController
   end
 
   def destroy
+    authorize @user
+    @user.destroy
   end
 
   private
