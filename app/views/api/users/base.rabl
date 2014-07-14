@@ -1,0 +1,1 @@
+attributes :email, :username, :role

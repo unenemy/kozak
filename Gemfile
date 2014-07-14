@@ -10,12 +10,15 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'thin'
 
+# Rails views
 gem 'haml'
 gem 'haml-rails'
 
+# JSON builders
 gem 'rabl'
 gem 'oj'
 
+# JS views in haml
 gem 'haml_coffee_assets', git: 'https://github.com/netzpirat/haml_coffee_assets.git'
 gem 'execjs'
 
@@ -25,7 +28,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 
+# Authentication from scratch
 gem 'bcrypt', require: 'bcrypt'
+gem 'pundit'
 
 group :development do
   gem 'quiet_assets'
