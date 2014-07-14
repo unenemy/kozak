@@ -1,2 +1,2 @@
 collection @projects
-attributes :title
+extends 'api/projects/base'
