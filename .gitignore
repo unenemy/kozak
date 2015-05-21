@@ -17,3 +17,4 @@
 .DS_store
 /config/database.yml
 database.yml
+.idea/
